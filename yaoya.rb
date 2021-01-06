@@ -12,17 +12,26 @@ puts "いらっしゃいませ！商品を選んで下さい。
 3.玉ねぎ（300円）
 4.なす（400円）
 "
+puts"商品の番号を選択 > "
 
-puts"商品の番号を選択 > 1"
+Selectednumber= gets.to_i - 1
 
+Selectedprice = vegetables[Selectednumber][:price]
+puts Selectedprice
 
-puts"トマトですね。何個買いますか？"
+puts"#{vegetables[Selectednumber][:name]}ですね。何個買いますか？"
 
-puts"個数を入力 > 5"
+puts"個数を入力 > "
 
+Selectedcount = gets .to_i
 
+if Selectedcount >= 5 
+  puts"5個以上なので10％割引となります！"
+  Totalprice = Selectedcount * 0.9 * Selectedprice 
 
+else
+  Totalprice = Selectedcount * Selectedprice
 
-#vegetables.each.with_index(1) do |name,i,price|
-  #puts"#{i}.  #{name}(#{price})"
-#end
+end
+puts"合計金額は#{Totalprice}円です。
+お買い上げありがとうございました！"
